@@ -11,6 +11,9 @@ const main = (app) => {
     }); 
 
     app.post('/api/personnel/add_personnel', (req, res) => { 
+        let newPersonnel = {name: 'x', lastName: 'y', email: 'z'};
+        personnel.push(newPersonnel);
+        res.json(personnel); 
     });
 
     app.delete('/api/personnel/delete_personnel', (req, res) => { 
