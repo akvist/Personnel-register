@@ -3,13 +3,14 @@ const app = express();
 
 const main = (app) => {
 
-   let personnel = [];
+    const port = 3000;
+    let personnel = [];
 
     app.get('/api/personnel/get_personnel', (req, res) => {
         res.json(personnel); 
     }); 
 
-    app.listen(300, () => {console.log('Listening to port 3000...')});
+    app.listen(port, () => {console.log(`Listening to port ${port}...`)});
 
 }
 
