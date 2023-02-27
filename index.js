@@ -13,6 +13,9 @@ const main = (app) => {
     app.post('/api/personnel/add_personnel', (req, res) => { 
     });
 
+    app.delete('/api/personnel/delete_personnel', (req, res) => { 
+    });
+
     app.listen(port, () => {console.log(`Listening to port ${port}...`)});
 
 }
