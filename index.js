@@ -10,6 +10,9 @@ const main = (app) => {
         res.json(personnel); 
     }); 
 
+    app.post('/api/personnel/add_personnel', (req, res) => { 
+    });
+
     app.listen(port, () => {console.log(`Listening to port ${port}...`)});
 
 }
