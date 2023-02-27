@@ -1,0 +1,11 @@
+{
+  "name": "personalregister",
+  "version": "1.0.0",
+  "description": "code challenge Etimo",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Amira Kvist",
+  "license": "ISC"
+}
