@@ -19,8 +19,9 @@ const main = (app) => {
         const lastName = req.body.lastName;
         const email = req.body.email;
         
-        const newPersonnel = {name: name, lastName: lastName, email: email};
-        personnel.push(newPersonnel);
+        const newPersonnel = {name: name, lastName: lastName, email: email};   
+        const emailCheck = personnel.filter(personnelInfo => personnelInfo.email === email);
+        if (emailCheck.length === 0) { personnel.push(newPersonnel); };
         res.json(personnel); 
     });
 
