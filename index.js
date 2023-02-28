@@ -26,6 +26,9 @@ const main = (app) => {
     });
 
     app.delete('/api/personnel/delete_personnel', (req, res) => { 
+        const email = req.body.email;
+        personnel = personnel.filter(personnelInfo => personnelInfo.email !== email)
+        res.json(personnel); 
     });
 
     app.listen(port, () => {console.log(`Listening to port ${port}...`)});
