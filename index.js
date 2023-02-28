@@ -15,7 +15,11 @@ const main = (app) => {
     }); 
 
     app.post('/api/personnel/add_personnel', (req, res) => { 
-        const newPersonnel = {name: 'x', lastName: 'y', email: 'z'};
+        const name = req.body.name;
+        const lastName = req.body.lastName;
+        const email = req.body.email;
+        
+        const newPersonnel = {name: name, lastName: lastName, email: email};
         personnel.push(newPersonnel);
         res.json(personnel); 
     });
