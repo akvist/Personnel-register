@@ -1,7 +1,11 @@
 const express = require('express');
 const app = express();
+const bodyParser = require('body-parser');
 
 const main = (app) => {
+
+    app.use(bodyParser.urlencoded({ extended: false }));
+    app.use(bodyParser.json())
 
     const port = 3000;
     let personnel = [];
@@ -11,7 +15,7 @@ const main = (app) => {
     }); 
 
     app.post('/api/personnel/add_personnel', (req, res) => { 
-        let newPersonnel = {name: 'x', lastName: 'y', email: 'z'};
+        const newPersonnel = {name: 'x', lastName: 'y', email: 'z'};
         personnel.push(newPersonnel);
         res.json(personnel); 
     });
