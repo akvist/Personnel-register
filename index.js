@@ -1,13 +1,13 @@
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
+require('dotenv').config(); 
 
 const main = (app) => {
 
-    app.use(bodyParser.urlencoded({ extended: false }));
     app.use(bodyParser.json())
 
-    const port = 3000;
+    const port = process.env.port || 3000; 
     let personnel = [];
 
     app.get('/api/personnel/get_personnel', (req, res) => {
@@ -27,7 +27,7 @@ const main = (app) => {
 
     app.delete('/api/personnel/delete_personnel', (req, res) => { 
         const email = req.body.email;
-        personnel = personnel.filter(personnelInfo => personnelInfo.email !== email)
+        personnel = personnel.filter(personnelInfo => personnelInfo.email !== email);
         res.json(personnel); 
     });
 
