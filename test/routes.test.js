@@ -55,3 +55,12 @@
       expect(response.statusCode).toBe(405); 
     });
   });
+
+  describe("DELETE / ", () => {
+    test("An employee should not be deleted if there is no employee with the given email", async () => {
+      const response = await request(app).delete("/api/personnel/delete_personnel").send({name: 'name5', lastName: 'lastName5', email: 'email1'});
+      expect(response.body).not.toContainEqual({email: 'email1'});
+      expect(response.body).toHaveLength(currentNumberOfPersonnel+1);
+      expect(response.statusCode).toBe(405); 
+    });
+  });
