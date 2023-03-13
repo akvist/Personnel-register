@@ -10,3 +10,12 @@
       expect(response.statusCode).toBe(200);
     });
   });
+
+  describe("POST / ", () => {
+    test("An employee should be added to the array if there is no already existing employee with the given name, last name and email", async () => {
+      const response = await request(app).post("/api/personnel/add_personnel").send({name: 'name', lastName: 'lastName', email: 'email'});
+      expect(response.body).toContainEqual({name: 'name', lastName: 'lastName', email: 'email'});
+      expect(response.body).toHaveLength(currentNumberOfPersonnel+1);
+      expect(response.statusCode).toBe(201); 
+    });
+  });
