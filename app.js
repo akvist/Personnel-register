@@ -13,7 +13,7 @@ const main = (app) => {
     ];
 
     app.get('/api/personnel/get_personnel', (req, res) => {
-        res.json(personnel); 
+        res.status(200).res.json(personnel); 
     }); 
 
     app.post('/api/personnel/add_personnel', (req, res) => { 
@@ -21,16 +21,24 @@ const main = (app) => {
         const lastName = req.body.lastName;
         const email = req.body.email;
         
-        const newPersonnel = {name: name, lastName: lastName, email: email};   
+        const newPersonnel = {
+            name, 
+            lastName, 
+            email
+        };  
+
         const emailCheck = personnel.filter(personnelInfo => personnelInfo.email === email);
-        if (emailCheck.length === 0) { personnel.push(newPersonnel); };
-        res.json(personnel); 
+        if (emailCheck.length === 0) { 
+            personnel.push(newPersonnel); 
+            res.status(201).json(personnel);
+        }
+        else {res.status(405).json(personnel)};
     });
 
     app.delete('/api/personnel/delete_personnel', (req, res) => { 
         const email = req.body.email;
         personnel = personnel.filter(personnelInfo => personnelInfo.email !== email);
-        res.json(personnel); 
+        resres.status(410).json(personnel); 
     });
 
 }
