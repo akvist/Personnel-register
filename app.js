@@ -36,9 +36,23 @@ const main = (app) => {
     });
 
     app.delete('/api/personnel/delete_personnel', (req, res) => { 
+        const name = req.body.name;
+        const lastName = req.body.lastName;
         const email = req.body.email;
-        personnel = personnel.filter(personnelInfo => personnelInfo.email !== email);
-        resres.status(410).json(personnel); 
+
+        const chosenEmployee = personnel.filter(personnelInfo => personnelInfo.email === email);
+
+        if (chosenEmployee.length === 1) { 
+            if (chosenEmployee[0].name === name && chosenEmployee[0].lastName === lastName && chosenEmployee[0].email === email) { 
+                personnel = personnel.filter(personnelInfo => personnelInfo.email !== email); 
+                res.status(410).json(personnel);
+            } else {
+                res.status(405).json(personnel)
+            }
+        }
+        else {
+            res.status(405).json(personnel)
+        };
     });
 
 }
