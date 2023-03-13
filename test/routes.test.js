@@ -37,3 +37,14 @@
       expect(response.statusCode).toBe(405); 
     });
   });
+
+  describe("DELETE / ", () => {
+    test("An employee should be deleted if there is an employee with the given name, last name and email", async () => {
+      const response = await request(app).delete("/api/personnel/delete_personnel").send({name: 'name1', lastName: 'lastName1', email: 'email1'});
+      expect(response.body).not.toContainEqual({name: 'name1', lastName: 'lastName1', email: 'email1'});
+      expect(response.body).toHaveLength(currentNumberOfPersonnel+1);
+      expect(response.statusCode).toBe(410); 
+    });
+  });
+
+  
