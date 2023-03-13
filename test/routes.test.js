@@ -3,6 +3,7 @@
   const app = require('../app');
   const currentNumberOfPersonnel = 3; 
 
+
   describe("GET / ", () => {
     test("The response should be an array with existing personnel", async () => {
       const response = await request(app).get("/api/personnel/get_personnel");
@@ -35,6 +36,14 @@
       expect(response.body).not.toContainEqual({name: 'name4', lastName: 'lastName4', email: 'email1'});
       expect(response.body).toHaveLength(currentNumberOfPersonnel+2);
       expect(response.statusCode).toBe(405); 
+    });
+  });
+
+  describe("POST / ", () => {
+    test("If name, last name or email is not given, status code 400 will be sent and no employee will be added", async () => {
+      const response = await request(app).post("/api/personnel/add_personnel").send({lastName: 'lastName4', email: 'email1'});
+      expect(response.body).toHaveLength(currentNumberOfPersonnel+2);
+      expect(response.statusCode).toBe(400); 
     });
   });
 
