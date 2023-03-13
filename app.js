@@ -35,8 +35,7 @@ const main = (app) => {
         res.json(personnel); 
     });
 
-    app.listen(port, () => {console.log(`Listening to port ${port}...`)});
-
 }
 
 main(app);
+module.exports = app; 
