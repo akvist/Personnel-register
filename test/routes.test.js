@@ -47,4 +47,11 @@
     });
   });
 
-  
+  describe("DELETE / ", () => {
+    test("An employee should not be deleted if there is an employee with the given email, but the name and last name does not concur with the given info", async () => {
+      const response = await request(app).delete("/api/personnel/delete_personnel").send({name: 'name5', lastName: 'lastName5', email: 'email1'});
+      expect(response.body).not.toContainEqual({name: 'name5', lastName: 'lastName5', email: 'email1'});
+      expect(response.body).toHaveLength(currentNumberOfPersonnel+1);
+      expect(response.statusCode).toBe(405); 
+    });
+  });
