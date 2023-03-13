@@ -1,13 +1,11 @@
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
-require('dotenv').config(); 
 
 const main = (app) => {
 
     app.use(bodyParser.json())
 
-    const port = process.env.port || 3000; 
     let personnel = [
         {name: 'name1', lastName: 'lastName1', email: 'email1'}, 
         {name: 'name2', lastName: 'lastName2', email: 'email2'},
