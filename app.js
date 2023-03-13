@@ -17,9 +17,9 @@ const main = (app) => {
     }); 
 
     app.post('/api/personnel/add_personnel', (req, res) => { 
-        const name = req.body.name;
-        const lastName = req.body.lastName;
-        const email = req.body.email;
+        const name = req.body?.name;
+        const lastName = req.body?.lastName;
+        const email = req.body?.email;
         
         const newPersonnel = {
             name, 
@@ -31,14 +31,15 @@ const main = (app) => {
         if (emailCheck.length === 0) { 
             personnel.push(newPersonnel); 
             res.status(201).json(personnel);
-        }
-        else {res.status(405).json(personnel)};
+        } else {
+            res.status(405).json(personnel)
+        };
     });
 
     app.delete('/api/personnel/delete_personnel', (req, res) => { 
-        const name = req.body.name;
-        const lastName = req.body.lastName;
-        const email = req.body.email;
+        const name = req.body?.name;
+        const lastName = req.body?.lastName;
+        const email = req.body?.email;
 
         const chosenEmployee = personnel.filter(personnelInfo => personnelInfo.email === email);
 
@@ -49,8 +50,7 @@ const main = (app) => {
             } else {
                 res.status(405).json(personnel)
             }
-        }
-        else {
+        } else {
             res.status(405).json(personnel)
         };
     });
