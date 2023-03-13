@@ -13,7 +13,7 @@ const main = (app) => {
     ];
 
     app.get('/api/personnel/get_personnel', (req, res) => {
-        res.status(200).res.json(personnel); 
+        res.status(200).json(personnel); 
     }); 
 
     app.post('/api/personnel/add_personnel', (req, res) => { 
