@@ -8,7 +8,11 @@ const main = (app) => {
     app.use(bodyParser.json())
 
     const port = process.env.port || 3000; 
-    let personnel = [];
+    let personnel = [
+        {name: 'name1', lastName: 'lastName1', email: 'email1'}, 
+        {name: 'name2', lastName: 'lastName2', email: 'email2'},
+        {name: 'name3', lastName: 'lastName3', email: 'email3'}
+    ];
 
     app.get('/api/personnel/get_personnel', (req, res) => {
         res.json(personnel); 
