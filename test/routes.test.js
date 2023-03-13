@@ -73,3 +73,11 @@
       expect(response.statusCode).toBe(405); 
     });
   });
+
+  describe("DELETE / ", () => {
+    test("If name, last name or email is not given, status code 400 will be sent and no employee will be deleted", async () => {
+      const response = await request(app).delete("/api/personnel/delete_personnel").send({lastName: 'lastName2', email: 'email2'});
+      expect(response.body).toHaveLength(currentNumberOfPersonnel+1);
+      expect(response.statusCode).toBe(400); 
+    });
+  });

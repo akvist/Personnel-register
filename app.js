@@ -3,6 +3,7 @@ const app = express();
 const bodyParser = require('body-parser');
 app.use(bodyParser.json());
 
+
 const main = (app) => {
 
     let personnel = [
@@ -29,6 +30,7 @@ const main = (app) => {
         };  
 
         const emailCheck = personnel.filter(personnelInfo => personnelInfo.email === email);
+
         if (name === undefined || lastName === undefined || email === undefined) {
             res.status(400).json(personnel);
         }
@@ -47,7 +49,10 @@ const main = (app) => {
 
         const chosenEmployee = personnel.filter(personnelInfo => personnelInfo.email === email);
 
-        if (chosenEmployee.length === 1) { 
+        if (name === undefined || lastName === undefined || email === undefined) {
+            res.status(400).json(personnel);
+        }
+        else if (chosenEmployee.length === 1) { 
             if (chosenEmployee[0].name === name && chosenEmployee[0].lastName === lastName && chosenEmployee[0].email === email) { 
                 personnel = personnel.filter(personnelInfo => personnelInfo.email !== email); 
                 res.status(410).json(personnel);
