@@ -84,9 +84,7 @@ Informative messages and statuscodes are sent for each response.
 
 ## Environment Variables
 
-To run this project, you will need to add the following environment variables to your .env file
-
-`PORT`, the port that will be used. If no port is specified in .env, a port specified in server.js will be used.
+`PORT` the port that will be used. If no port is specified in .env, a port specified in server.js will be used.
 
 ## Run Locally
 
