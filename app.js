@@ -32,8 +32,7 @@ const main = (app) => {
 
             if (name === undefined || lastName === undefined || email === undefined) {
                 res.status(400).json(personnel); //404?
-            }
-            else if (emailCheck.length === 0) { 
+            } else if (emailCheck.length === 0) { 
                 personnel.push(newPersonnel); 
                 res.status(201).json(personnel);
             } else {
@@ -51,21 +50,25 @@ const main = (app) => {
         const lastName = req.body?.lastName;
         const email = req.body?.email;
 
-        const chosenEmployee = personnel.filter(personnelInfo => personnelInfo.email === email);
+        try {
+            const chosenEmployee = personnel.filter(personnelInfo => personnelInfo.email === email);
 
-        if (name === undefined || lastName === undefined || email === undefined) {
-            res.status(400).json(personnel);
-        }
-        else if (chosenEmployee.length === 1) { 
-            if (chosenEmployee[0].name === name && chosenEmployee[0].lastName === lastName && chosenEmployee[0].email === email) { 
-                personnel = personnel.filter(personnelInfo => personnelInfo.email !== email); 
-                res.status(410).json(personnel);
+            if (name === undefined || lastName === undefined || email === undefined) {
+                res.status(400).json(personnel);
+            } else if (chosenEmployee.length === 1) { 
+                if (chosenEmployee[0].name === name && chosenEmployee[0].lastName === lastName && chosenEmployee[0].email === email) { 
+                    personnel = personnel.filter(personnelInfo => personnelInfo.email !== email); 
+                    res.status(410).json(personnel);
+                } else {
+                    res.status(405).json(personnel)
+                }
             } else {
                 res.status(405).json(personnel)
-            }
-        } else {
-            res.status(405).json(personnel)
-        };
+            };
+        
+        } catch(error) {
+            console.error(error);
+        }
     });
 
 }
