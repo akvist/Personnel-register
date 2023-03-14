@@ -20,8 +20,6 @@ const main = (app) => {
         const name = req.body?.name;
         const lastName = req.body?.lastName;
         const email = req.body?.email;
-
-        console.log(name);
         
         const newPersonnel = {
             name, 
@@ -29,17 +27,23 @@ const main = (app) => {
             email
         };  
 
-        const emailCheck = personnel.filter(personnelInfo => personnelInfo.email === email);
+        try {
+            const emailCheck = personnel.filter(personnelInfo => personnelInfo.email === email);
 
-        if (name === undefined || lastName === undefined || email === undefined) {
-            res.status(400).json(personnel);
+            if (name === undefined || lastName === undefined || email === undefined) {
+                res.status(400).json(personnel); //404?
+            }
+            else if (emailCheck.length === 0) { 
+                personnel.push(newPersonnel); 
+                res.status(201).json(personnel);
+            } else {
+                res.status(405).json(personnel);
+            };
+
+        } catch(error) {
+            console.error(error);
         }
-        else if (emailCheck.length === 0) { 
-            personnel.push(newPersonnel); 
-            res.status(201).json(personnel);
-        } else {
-            res.status(405).json(personnel);
-        };
+        
     });
 
     app.delete('/api/personnel/delete_personnel', (req, res) => { 
