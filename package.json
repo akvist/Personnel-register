@@ -1,7 +1,7 @@
 {
   "name": "personalregister",
   "version": "1.0.0",
-  "description": "code challenge Etimo",
+  "description": "REST-API personalregister",
   "main": "server.js",
   "scripts": {
        "test": "jest"

@@ -27,12 +27,12 @@ const main = (app, personnel) => {
             const emailCheck = personnel.filter(personnelInfo => personnelInfo.email === email);
 
             if (name === undefined || lastName === undefined || email === undefined) {
-                res.status(400).json(personnel); //404?
+                res.status(400).json({message:'No employee was added to the register. Please enter name, last name and email of employee you want to add.', result: personnel}); //404?
             } else if (emailCheck.length === 0) { 
                 personnel.push(newPersonnel); 
-                res.status(201).json(personnel);
+                res.status(201).json({message:`${name} ${lastName} with email ${email} was added to the register.`, result: personnel});
             } else {
-                res.status(405).json(personnel);
+                res.status(405).json({message:'Employee with given email already exists. The employee was therefore not added to the register.', result: personnel});
             };
 
         } catch(error) {
@@ -50,16 +50,16 @@ const main = (app, personnel) => {
             const chosenEmployee = personnel.filter(personnelInfo => personnelInfo.email === email);
 
             if (name === undefined || lastName === undefined || email === undefined) {
-                res.status(400).json(personnel);
+                res.status(400).json({message:'No employee was removed from the register. Please enter name, last name and email of employee you want to remove.', result: personnel});
             } else if (chosenEmployee.length === 1) { 
                 if (chosenEmployee[0].name === name && chosenEmployee[0].lastName === lastName && chosenEmployee[0].email === email) { 
                     personnel = personnel.filter(personnelInfo => personnelInfo.email !== email); 
-                    res.status(410).json(personnel);
+                    res.status(410).json({message:`${name} ${lastName} with email ${email} was removed from the register.`, result: personnel});
                 } else {
-                    res.status(405).json(personnel)
+                    res.status(405).json({message:'Employee with given email does not have the name and last name you entered. The employee was therefore not deleted from the register.', result: personnel});
                 }
             } else {
-                res.status(405).json(personnel)
+                res.status(405).json({message:'Employee with given email does not have the name and last name you entered. The employee was therefore not deleted from the register.', result: personnel});
             };
         
         } catch(error) {
