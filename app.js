@@ -3,14 +3,10 @@ const app = express();
 const bodyParser = require('body-parser');
 app.use(bodyParser.json());
 
+let personnel = require('./personnel');
 
-const main = (app) => {
 
-    let personnel = [
-        {name: 'name1', lastName: 'lastName1', email: 'email1'}, 
-        {name: 'name2', lastName: 'lastName2', email: 'email2'},
-        {name: 'name3', lastName: 'lastName3', email: 'email3'}
-    ];
+const main = (app, personnel) => {
 
     app.get('/api/personnel/get_personnel', (req, res) => {
         res.status(200).json(personnel); 
@@ -73,5 +69,5 @@ const main = (app) => {
 
 }
 
-main(app);
+main(app, personnel);
 module.exports = app; 
