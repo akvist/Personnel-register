@@ -99,7 +99,7 @@ Install dependencies
 Start the server
 
 ```bash
-  node server.js //npm start
+  npm start
 ```
 
 Run tests
