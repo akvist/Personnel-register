@@ -19,7 +19,7 @@ const deletePersonnel = ((req,res) => {
                 res.status(405).json({message:'Employee with given email does not have the name and last name you entered. The employee was therefore not deleted from the register.', result: personnel});
             }
         } else {
-            res.status(405).json({message:'Employee with given email does not have the name and last name you entered. The employee was therefore not deleted from the register.', result: personnel});
+            res.status(405).json({message:'Employee with given email does not exist. The employee was therefore not deleted from the register.', result: personnel});
         };
     
     } catch(error) {
