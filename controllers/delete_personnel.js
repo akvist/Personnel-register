@@ -7,12 +7,12 @@ const deletePersonnel = ((req,res) => {
     const email = req.body?.email;
 
     try {
-        const chosenEmployee = personnel.filter(personnelInfo => personnelInfo.email === email);
+        const enteredEmployee = personnel.filter(personnelInfo => personnelInfo.email === email);
 
         if (name === undefined || lastName === undefined || email === undefined) {
             res.status(400).json({message:'No employee was removed from the register. Please enter name, last name and email of employee you want to remove.', result: personnel});
-        } else if (chosenEmployee.length === 1) { 
-            if (chosenEmployee[0].name === name && chosenEmployee[0].lastName === lastName && chosenEmployee[0].email === email) { 
+        } else if (enteredEmployee.length === 1) { 
+            if (enteredEmployee[0].name === name && enteredEmployee[0].lastName === lastName && enteredEmployee[0].email === email) { 
                 personnel = personnel.filter(personnelInfo => personnelInfo.email !== email); 
                 res.status(410).json({message:`${name} ${lastName} with email ${email} was removed from the register.`, result: personnel});
             } else {
