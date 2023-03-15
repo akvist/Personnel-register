@@ -4,7 +4,8 @@
   "description": "REST-API personalregister",
   "main": "server.js",
   "scripts": {
-       "test": "jest"
+      "start": "node server.js",
+      "test": "jest"
   },
   "author": "Amira Kvist",
   "license": "ISC",
