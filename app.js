@@ -8,9 +8,9 @@ const addPersonnel = require('./controllers/add_personnel');
 const deletePersonnel = require('./controllers/delete_personnel');
 
 const main = (app) => {
-    app.get('/api/personnel/get_personnel', getPersonnel); 
-    app.post('/api/personnel/add_personnel', addPersonnel);
-    app.delete('/api/personnel/delete_personnel', deletePersonnel);
+    app.get('/personnel', getPersonnel); 
+    app.post('/personnel', addPersonnel);
+    app.delete('/api/personnel/:id', deletePersonnel);
 }
 
 main(app);
