@@ -40,7 +40,7 @@
   });
 
   describe("POST / ", () => {
-    test("If name, last name or email is not given, status code 400 will be sent and no employee will be added", async () => {
+    test("If name, last name or email is not given, no employee will be added", async () => {
       const response = await request(app).post("/personnel").send({lastName: 'lastName4', email: 'email1'});
       expect(response.body.result).toHaveLength(currentNumberOfPersonnel+2);
       expect(response.statusCode).toBe(400); 

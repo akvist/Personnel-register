@@ -36,8 +36,6 @@ You can:
 
 Informative messages and statuscodes are sent for each response.
 
-When checking if an employee exists in the register, it searches for the entered email since email addresses should be unique and several employees can have the same name and/or last name. For safety reasons, the personnel only gets deleted if the name and last name matches with the email. In other words, entered name, last name and email needs to match with an existing employee for the employee to be deleted. This is so that the wrong employee would not be accidentally removed.
-
 ## Highlights
 
 **Highlights of this project**:
