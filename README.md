@@ -42,8 +42,7 @@ Informative messages and statuscodes are sent for each response.
 
 - Creating RESTful API:s with express
 - Managing git and GitHub
-- Managing the asynchronous aspect in JavaScript
-- Cathching errors and
+- Cathching errors
 - Sending status codes and messages for responses
 - Includes suitable tests
 - Using environmental variables
@@ -51,7 +50,6 @@ Informative messages and statuscodes are sent for each response.
 - Using body-parser
 - Writing understandable code by naming of functions/variables and by structure of code
 - The logic that only allows an employee with an unique email adress to be added, even if the name is the same as someone in the register
-- The logic that only allows an employee with an existing email and the same name and last name as the entered info to be deleted
 - Splitting the project into modules
 - Writing commit messages
 
