@@ -31,9 +31,8 @@ You can:
   - An employee with an unique name, last name and email will be added to the register.
   - If there already is an employee with the same name or/and last name but a different email, they will be added to the register.
   - If there already is an employee with the given email, the employee will not be added to the register.
-- DELETE: Remove an employee from the register by entering the name, last name and email of the employee.
-  - For the employee to be deleted, the name, last name and email have to concur for the employee with the entered email.
-    - If name, last name or/and email is missing, the employee will not be removed from the register.
+- DELETE: Remove an employee from the register by entering the id of the employee.
+  - If the id does not exist, the employee will not be removed from the register.
 
 Informative messages and statuscodes are sent for each response.
 

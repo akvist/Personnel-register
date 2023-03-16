@@ -5,8 +5,10 @@ const addPersonnel = ((req,res) => {
     const name = req.body?.name;
     const lastName = req.body?.lastName;
     const email = req.body?.email;
+    const id = personnel[personnel.length-1].id+1;
         
     const newEmployee = {
+        id,
         name, 
         lastName, 
         email
@@ -21,7 +23,7 @@ const addPersonnel = ((req,res) => {
             personnel.push(newEmployee); 
             res.status(201).json({message:`${name} ${lastName} with email ${email} was added to the register.`, result: personnel});
         } else {
-            res.status(405).json({message:'Employee with given email already exists. The employee was therefore not added to the register.', result: personnel});
+            res.status(409).json({message:'Employee with given email already exists. The employee was therefore not added to the register.', result: personnel});
         };
 
     } catch(error) {
