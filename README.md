@@ -64,19 +64,19 @@ Informative messages and statuscodes are sent for each response.
 #### Get all personnel
 
 ```http
-  GET /api/personnel/get_personnel
+  GET /personnel
 ```
 
 #### Add an employee
 
 ```http
-  POST /api/personnel/add_personnel
+  POST /personnel
 ```
 
 #### Remove an employee
 
 ```http
-  DELETE /api/personnel/delete_personnel
+  DELETE /api/personnel/:id
 ```
 
 ## Environment Variables
