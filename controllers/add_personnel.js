@@ -1,5 +1,5 @@
-let personnel = require('../personnel');
-
+const dbConnection = require('../db_connection');
+let personnel = dbConnection();
 
 const addPersonnel = ((req,res) => {
     const name = req.body?.name;

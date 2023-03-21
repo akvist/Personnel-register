@@ -1,4 +1,5 @@
-let personnel = require('../personnel');
+const dbConnection = require('../db_connection');
+const personnel = dbConnection();
 
 
 const getPersonnel = ((req,res) => {
