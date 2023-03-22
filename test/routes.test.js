@@ -1,8 +1,8 @@
 
   const request = require('supertest');
   const app = require('../app');
-  const currentNumberOfPersonnel = 3; 
-
+  const dbConnection = require('../db_connection');
+  const currentNumberOfPersonnel = dbConnection().length;
 
   describe("GET / ", () => {
     test("The response should be an array with existing personnel", async () => {
