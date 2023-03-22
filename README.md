@@ -34,7 +34,7 @@ You can:
 - DELETE: Remove an employee from the register by entering the id of the employee.
   - If the id does not exist, the employee will not be removed from the register.
 
-Informative messages and statuscodes are sent for each response.
+Informative messages and status codes are sent for each response.
 
 ## Highlights
 
@@ -52,6 +52,7 @@ Informative messages and statuscodes are sent for each response.
 - The logic that only allows an employee with an unique email adress to be added, even if the name is the same as someone in the register
 - Splitting the project into modules
 - Writing commit messages
+- Using dependency injection for database
 
 ## Tech Stack
 
