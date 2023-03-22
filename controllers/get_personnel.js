@@ -1,8 +1,4 @@
-const dbConnection = require('../database/db_connection');
-const personnel = dbConnection();
-
-
-const getPersonnel = ((req,res) => {
+const getPersonnel = ((req, res, personnel) => {
     res.status(200).json(personnel); 
 });
 

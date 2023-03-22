@@ -1,7 +1,4 @@
-const dbConnection = require('../database/db_connection');
-let personnel = dbConnection();
-
-const addPersonnel = ((req,res) => {
+const addPersonnel = ((req,res, personnel) => {
     const name = req.body?.name;
     const lastName = req.body?.lastName;
     const email = req.body?.email;

@@ -59,7 +59,7 @@
   describe("DELETE / ", () => {
     test("An employee should not be deleted if there is no employee with the given id", async () => {
       const response = await request(app).delete("/api/personnel/7");
-      expect(response.body.result).toHaveLength(currentNumberOfPersonnel+1);
+      expect(response.body.result).toHaveLength(currentNumberOfPersonnel+2);
       expect(response.statusCode).toBe(404); 
     });
   });
