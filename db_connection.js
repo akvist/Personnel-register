@@ -1,5 +1,5 @@
 const dbConnection = () => { 
-    let personnel = require('./database');
+    let personnel = require('./db');
     return personnel;
 };
 
