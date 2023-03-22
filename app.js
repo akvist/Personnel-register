@@ -11,7 +11,7 @@ const main = (app) => {
     app.get('/personnel', getPersonnel); 
     app.post('/personnel', addPersonnel);
     app.delete('/api/personnel/:id', deletePersonnel);
-}
+};
 
 main(app);
 module.exports = app; 

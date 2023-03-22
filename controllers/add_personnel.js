@@ -1,4 +1,4 @@
-const dbConnection = require('../db_connection');
+const dbConnection = require('../database/db_connection');
 let personnel = dbConnection();
 
 const addPersonnel = ((req,res) => {

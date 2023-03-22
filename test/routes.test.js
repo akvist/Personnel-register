@@ -1,7 +1,7 @@
 
   const request = require('supertest');
   const app = require('../app');
-  const dbConnection = require('../db_connection');
+  const dbConnection = require('../database/db_connection');
   const currentNumberOfPersonnel = dbConnection().length;
 
   describe("GET / ", () => {
