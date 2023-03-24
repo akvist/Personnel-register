@@ -118,6 +118,10 @@ To run tests, run the following command
   npm test
 ```
 
+## Author
+
+- [@akvist](https://www.github.com/akvist)
+
 ## 🔗 Links
 
 You can find me on LinkedIn:
