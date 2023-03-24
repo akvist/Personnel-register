@@ -11,6 +11,8 @@ This is a REST API created with Node.js and express.
 - API Reference
 - Environmental variables
 - Run Locally
+- Running tests
+- Author
 - Links
 
 ## Introduction
@@ -79,6 +81,10 @@ Informative messages and status codes are sent for each response.
 ```http
   DELETE /api/personnel/:id
 ```
+
+| Parameter | Type     | Description                             |
+| :-------- | :------- | :-------------------------------------- |
+| `id`      | `number` | **Required**. Id of employee to remove. |
 
 ## Environment Variables
 
