@@ -110,6 +110,14 @@ Run tests
   npm test
 ```
 
+## Running Tests
+
+To run tests, run the following command
+
+```bash
+  npm test
+```
+
 ## 🔗 Links
 
 You can find me on LinkedIn:
