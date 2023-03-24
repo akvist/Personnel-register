@@ -104,12 +104,6 @@ Start the server
   npm start
 ```
 
-Run tests
-
-```bash
-  npm test
-```
-
 ## Running Tests
 
 To run tests, run the following command
