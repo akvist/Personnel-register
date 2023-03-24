@@ -6,7 +6,7 @@ This is a REST API created with Node.js and express.
 
 - Introduction
 - Scope of Functionalities
-- Lessons Learned
+- Highlights
 - Tech Stack
 - API Reference
 - Environmental variables
